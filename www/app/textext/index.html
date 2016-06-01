@@ -1,0 +1,91 @@
+
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+
+ 
+		
+
+		<script src="./js/jquery-1.8.2.js" type="text/javascript" charset="utf-8"></script>
+	 
+       <link rel="stylesheet" href="./css/textext.css" type="text/css" />
+	    <script src="./js/textext.min.js" type="text/javascript" charset="utf-8"></script>
+		
+	</head>
+
+	<body >
+		
+
+<div id="example">
+
+	
+
+	<h4>Live Demo</h4>
+
+	
+<textarea id="textarea" class="example" rows="1"></textarea>
+
+	
+<script type="text/javascript">
+	$('#textarea')
+		.textext({
+			plugins : 'tags autocomplete ajax',
+			ajax : {
+                url : 'http://localhost:88/ofertaTags/json',
+                dataType : 'json',
+                cacheResults : true
+            },
+
+			ext: {
+				itemManager: {
+					stringToItem: function(str)
+					{ 
+					 return { name: str };
+					},
+
+					itemToString: function(item)
+					{
+						return item.name;
+					},
+
+					compareItems: function(item1, item2)
+					{
+					     alert(item1);
+						return item1.name == item2.name;
+					}
+				}
+			}
+		});
+</script>
+
+
+	<h4>Form Content</h4>
+
+	<p class="hint">This is the data that will be submitted with HTML form.</p>
+	<pre id="output" class="output"></pre>
+
+	<script>
+	(function()
+	{
+		var textarea = $('textarea.example:last'),
+			output   = $('pre.output:last')
+			;
+
+		textarea.bind('setFormData', function(e, data, isEmpty)
+		{
+			var textext = $(e.target).textext()[0];
+			output.text(textext.hiddenInput().val());
+		});
+
+		// force this for the sake of the example so that we get one extra
+		// `setFormData` event fire and we would set the #output value
+		textarea.textext()[0].getFormData();
+	})();
+	</script>
+</body>
+</html>
+
+ 
+
+

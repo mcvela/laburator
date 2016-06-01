@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html><head>
+	<title>jQuery TextExt Plugin - Ajax With Filter, Tags and Autocomplete</title>
+		<meta http-equiv="Content-Type" content="application/xhtml+xml; charset=utf-8" />
+
+		<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Kaushan+Script" type="text/css" />
+		<link rel="stylesheet" href="/textext//css/main.css" type="text/css" />
+
+		<script src="/textext//js/jquery-1.8.2.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/textext//js/doc.js" type="text/javascript" charset="utf-8"></script>
+
+		<link rel="stylesheet" href="/textext/css/textext.core.css" type="text/css" />
+		<link rel="stylesheet" href="/textext/css/textext.plugin.tags.css" type="text/css" />
+		<link rel="stylesheet" href="/textext/css/textext.plugin.autocomplete.css" type="text/css" />
+		<link rel="stylesheet" href="/textext/css/textext.plugin.focus.css" type="text/css" />
+		<link rel="stylesheet" href="/textext/css/textext.plugin.prompt.css" type="text/css" />
+		<link rel="stylesheet" href="/textext/css/textext.plugin.arrow.css" type="text/css" />
+		<script src="/textext/js/textext.core.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/textext/js/textext.plugin.tags.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/textext/js/textext.plugin.autocomplete.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/textext/js/textext.plugin.suggestions.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/textext/js/textext.plugin.filter.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/textext/js/textext.plugin.focus.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/textext/js/textext.plugin.prompt.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/textext/js/textext.plugin.ajax.js" type="text/javascript" charset="utf-8"></script>
+		<script src="/textext/js/textext.plugin.arrow.js" type="text/javascript" charset="utf-8"></script></head>
+
+	<body data-section="examples">
+		
+<div id="example">
+
+	
+
+	<h4>¿Que búscas?</h4>
+
+	
+<div style="height: 22px;" class="text-core"><div style="width: 400px; height: 22px;" class="text-wrap"><textarea style="width: 400px; padding-left: 5px; padding-top: 3px;" id="textarea" class="example" rows="1"></textarea><div class="text-tags"></div><div style="max-height: 100px; top: 22px; display: none;" class="text-dropdown text-position-below"><div class="text-list"><div class="text-suggestion"><span class="text-label">PHP</span></div><div class="text-suggestion"><span class="text-label">Perl</span></div><div class="text-suggestion text-selected"><span class="text-label">Python</span></div></div></div><input value="[]" type="hidden"></div></div>
+
+	
+<script type="text/javascript">
+	$('#textarea')
+		.textext({
+			plugins : 'autocomplete filter tags ajax',
+			ajax : {
+				url : '/textext/data.json',
+				dataType : 'json',
+				cacheResults : true
+			}
+		})
+	;
+</script>
+
+<br><br>
+	<h4>Lo que se busca</h4>
+    <pre id="output" class="output">[]</pre>
+
+	<script>
+	(function()
+	{
+		var textarea = $('textarea.example:last'),
+			output   = $('pre.output:last')
+			;
+
+		textarea.bind('setFormData', function(e, data, isEmpty)
+		{
+			var textext = $(e.target).textext()[0];
+			output.text(textext.hiddenInput().val());
+		});
+
+		// force this for the sake of the example so that we get one extra
+		// `setFormData` event fire and we would set the #output value
+		textarea.textext()[0].getFormData();
+	})();
+	</script>
+
+
+</div>
+
+
+ 
+
+</body></html>

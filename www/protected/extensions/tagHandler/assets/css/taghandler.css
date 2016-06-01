@@ -1,0 +1,99 @@
+body {
+    margin-top: 1.0em;
+    background-color: #FFF;
+    font-family: arial,helvetica, sans-serif;
+    color: #000000;
+}
+
+#container {
+    width: 970px;
+    margin: 0 auto;
+}
+
+#main {
+    float: left;
+    width: 700px;
+    margin-right: 20px;
+}
+
+#sidebar {
+    float: right;
+    width: 250px;
+}
+
+#sidebar p {
+    font-size: 12px;
+}
+
+p {
+    font-size: 13px;
+    font-family: arial,helvetica, sans-serif
+}
+
+ul li {
+    margin: 10px 0px;
+}
+
+ol li {
+    margin-bottom: 5px;
+}
+
+h1 { font-size: 3.8em; color: #0066bd; margin-bottom: 3px; }
+
+h1 .small { font-size: 0.4em; }
+
+h1 a { text-decoration: none; color: #0066bd; }
+
+h2 { font-size: 17px;; color: #0066bd; margin-top: 30px; }
+
+h3 { font-size: 15px;; color: #0066bd; }
+
+a { color: #c27603; }
+
+a:hover { text-decoration: none; }
+
+.description { font-size: 1.2em; margin-bottom: 30px; margin-top: 30px; font-style: italic;}
+
+.download { float: right; }
+
+pre.source {
+    background: #000;
+    color: #fff;
+    padding: 15px;
+}
+
+hr { border: 0; width: 80%; border-bottom: 1px solid #aaa}
+
+.footer { text-align:center; padding: 30px 0; font-style: italic; }
+
+.ui-menu .ui-menu-item a {
+    font-family: arial, helvetica, sans-serif;
+    font-size: 12px;
+    line-height: 15px;
+    cursor: pointer;
+}
+
+td {
+    font-size: 12px;
+    border-bottom: 1px dotted #999;
+    padding: 3px 5px;
+    vertical-align: top;
+}
+
+th {
+    font-size: 13px;
+    font-weight: bold;
+    color: #0066bd;
+    text-align: left;
+    border-bottom: 1px dotted #666;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+    vertical-align: top;
+}
+
+.table_title {
+    font-weight: bold;
+    font-size: 12px;
+    font-family: arial, helvetica, sans-serif;
+    margin: 15px 0px 7px;
+}
